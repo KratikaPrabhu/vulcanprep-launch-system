@@ -1,0 +1,160 @@
+:root {
+  --bg-color: #050505; /* Deep, dark premium background */
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --accent-color: #3b82f6; 
+  --accent-hover: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* Prevent scrollbars on the LED screen */
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Phone Launch Button */
+.launch-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 1.2rem 3.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px 0 rgba(59, 130, 246, 0.4);
+}
+
+.launch-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
+}
+
+.launch-btn:disabled {
+  background-color: #1a1a1a;
+  color: #444;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* LED Screen Styles */
+.led-screen {
+  background-color: var(--bg-color);
+}
+
+.led-waiting h1 {
+  color: #333;
+  font-size: 4rem;
+  letter-spacing: 0.1em;
+  animation: pulse-slow 3s infinite ease-in-out;
+}
+
+/* Massive Countdown Numbers */
+.countdown-display {
+  font-size: 25vw; /* Scales massively to fit LED displays */
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.2);
+  /* The key prop in React will trigger this animation on every number change */
+  animation: number-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.countdown-get-ready {
+  font-size: 12vw;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+  text-shadow: 0 0 50px rgba(59, 130, 246, 0.4);
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Final Launch State */
+.led-launched {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+.led-launched h1 {
+  font-size: 15vw;
+  line-height: 1;
+  margin: 0;
+  background: linear-gradient(to right, #ffffff, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.led-launched .live-text {
+  font-size: 8vw;
+  color: var(--accent-color);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-top: -1rem;
+  text-shadow: 0 0 60px rgba(59, 130, 246, 0.6);
+}
+
+/* Animations */
+@keyframes number-pop {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* QR Code Container */
+.qr-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-top: 2rem;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+}
