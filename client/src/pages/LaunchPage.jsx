@@ -6,8 +6,9 @@ const BACKEND_URL = import.meta.env.DEV
   ? `http://${window.location.hostname}:5000` 
   : import.meta.env.VITE_BACKEND_URL;
 
+// Allow polling fallback in production for maximum reliability
 const socket = io(BACKEND_URL, {
-  transports: ['websocket']
+  transports: ['websocket', 'polling']
 });
 
 export default function LaunchPage() {
