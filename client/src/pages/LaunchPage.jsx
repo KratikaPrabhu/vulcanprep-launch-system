@@ -113,15 +113,23 @@ export default function LaunchPage() {
           </p>
         </>
       ) : (
-        <>
+        <div style={{ maxWidth: '400px', animation: 'fadeIn 0.5s ease-in-out' }}>
           <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🎉</div>
-          <h1 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#fff' }}>
+          
+          <h1 style={{ fontSize: '1.6rem', marginBottom: '0.5rem', color: '#00ffcc', fontWeight: 'bold' }}>
             You have successfully launched the website!
           </h1>
-          <p style={{ fontSize: '1rem', color: '#aaa' }}>
-            Look at the LED screen to see the live reveal.
+          
+          <p style={{ fontSize: '1.2rem', marginBottom: '2rem', color: '#eee', fontWeight: '500' }}>
+            Thank you for joining us
           </p>
-        </>
+          
+          <div style={{ borderTop: '1px solid #222', paddingTop: '1.5rem' }}>
+            <p style={{ fontSize: '0.95rem', color: '#888' }}>
+              Look at the LED screen to see the live reveal.
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );
